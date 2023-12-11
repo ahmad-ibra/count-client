@@ -6,7 +6,7 @@
 Ensure the count-server is running, then run the container:
 ```
 ❯ docker build -t count-client .
-❯ docker run --network=count-network -d count-client
+❯ docker run -e HOST=count-server -e PORT=1234 --network=count-network -d count-client
 ```
 
 ## Useful Commands

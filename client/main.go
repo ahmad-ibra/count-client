@@ -2,8 +2,10 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"buf.build/gen/go/ahmad-ibrahim/count-api/connectrpc/go/count/v1/countv1connect"
@@ -12,9 +14,14 @@ import (
 )
 
 func main() {
+	host := os.Getenv("HOST")
+	port := os.Getenv("PORT")
+
+	fmt.Println("attempting to connect to host: ", host, " on port: ", port)
+
 	client := countv1connect.NewCountServiceClient(
 		http.DefaultClient,
-		"http://count-server:8080",
+		"http://"+host+":"+port,
 	)
 
 	for {
