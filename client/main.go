@@ -14,7 +14,7 @@ import (
 func main() {
 	client := countv1connect.NewCountServiceClient(
 		http.DefaultClient,
-		"http://localhost:8080",
+		"http://count-server:8080",
 	)
 
 	for {

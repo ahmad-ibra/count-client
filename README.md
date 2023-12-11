@@ -1,7 +1,8 @@
 # count-client
 
 ## Usage
-Ensure the count-server is running. Then run the count-client:
+Ensure the count-server is running, then run the container:
 ```
-❯ go run client/main.go
+❯ docker build -t count-client .
+❯ docker run --network=count-network -d count-client
 ```
